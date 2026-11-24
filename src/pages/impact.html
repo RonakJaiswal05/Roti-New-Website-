@@ -1,0 +1,92 @@
+<!--{"title":"Impact · The Record · Roti Bank Foundation","desc":"31,192,568 meals served since 2017, counted and published every month in the Roti Bank Samachar. Meals by city, programme figures and the full record.","nav":"impact"}-->
+
+<section class="page-hero" style="padding-bottom:0">
+  <div class="wrap">
+    <p class="crumbs"><a href="/">Home</a> / Impact</p>
+    <p class="eyebrow">The Record · Roti Bank Live Impact</p>
+    <h1>Every meal you fund is counted, <em>and the count is public.</em></h1>
+    <p class="lede">The meals counter has been printed in the Roti Bank Samachar every month since 2019. Here it is in one place, with every figure dated and sourced.</p>
+    <div class="subnav"><a href="#record">The record</a><a href="#cities">Meals by city</a><a href="#programmes">Programmes</a><a href="#today">Today in the kitchen</a><a href="/hunger-watch">Hunger &amp; Food Waste Watch</a><a href="/fact-sheet">Fact sheet</a></div>
+  </div>
+</section>
+
+<section class="counter-hero">
+  <div class="wrap">
+    <span class="mega" data-count="{{fact:meals_served|value}}">{{fact:meals_served}}</span>
+    <p>meals served since December 2017</p>
+    <span class="src">{{src:meals_served}}. Updated monthly from the trustee-approved fact sheet, never a simulated number.</span>
+  </div>
+</section>
+
+<section class="section-tight" id="record" style="padding-top:0">
+  <div class="wrap">
+    <div class="chart-card reveal">
+      <div class="sec-head" style="margin-bottom:20px">
+        <div><p class="eyebrow">The record</p><h2 style="font-size:clamp(1.6rem,3vw,2.4rem)">From 1 million to 31 million meals.</h2></div>
+        <p class="fine">Cumulative meals served, as printed on Samachar covers. Hover or tab to a point to see the issue.</p>
+      </div>
+      {{chart:record}}
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" id="cities">
+  <div class="wrap grid-2" style="gap:48px;align-items:start">
+    <div class="reveal">
+      <p class="eyebrow">Meals by city</p>
+      <h2>Seven cities. <em>Five states.</em></h2>
+      <p class="lede">Mumbai is where Roti Bank began and where most meals are served. Nagpur, Coimbatore, Chennai, Hyderabad, Cuttack and Ahmedabad followed.</p>
+      <p class="fine">To {{fact:meals_served|as_of}}. In Phase 4 this becomes a map of every partner school and hospital, with children fed at each and the partner who funds it.</p>
+    </div>
+    <div class="card reveal">
+      {{chart:cities}}
+    </div>
+  </div>
+</section>
+
+<section class="section bg-paper" id="programmes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow">Programmes</p><h2>Where the meals <em>go.</em></h2></div>
+      <p>Five programmes, one kitchen standard. <a href="/our-work">Read about each programme.</a></p>
+    </div>
+    <div class="grid-4">
+      <div class="card reveal"><span class="kicker">School Nutrition</span><span class="big-num">{{fact:children_daily}}</span><p>children fed every school day in {{fact:schools}} Mumbai schools</p><span class="src">{{fact:children_daily|as_of}}</span></div>
+      <div class="card reveal"><span class="kicker">Hospital meals</span><span class="big-num">{{fact:hospital_daily}}</span><p>patients and families fed daily outside two hospitals</p><span class="src">{{fact:hospital_daily|as_of}}</span></div>
+      <div class="card reveal"><span class="kicker">Every day</span><span class="big-num">{{fact:meals_day}}</span><p>meals a day across all cities</p><span class="src">{{fact:meals_day|as_of}}</span></div>
+      <div class="card reveal"><span class="kicker">Cost per meal</span><span class="big-num">{{fact:meal_cost}}</span><p>to cook and deliver one nutritious meal for a child</p><span class="src">{{fact:meal_cost|as_of}}</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-night" id="today">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow eyebrow-light">Today in the kitchen</p><h2>Live from the kitchen, <em>the vans and the gates.</em></h2></div>
+      <p>Once the Operations Console is in use, this strip updates as meals are cooked, vans leave and volunteers check in. <b style="color:#fff">The figures below are illustrative.</b></p>
+    </div>
+    <div class="today">
+      <div><span class="live-dot">Illustrative</span><b>14,820</b><span>meals cooked so far today</span></div>
+      <div><span class="live-dot">Illustrative</span><b>9</b><span>vans out on routes</span></div>
+      <div><span class="live-dot">Illustrative</span><b>41</b><span>schools served by 1 pm</span></div>
+      <div><span class="live-dot">Illustrative</span><b>63</b><span>volunteers checked in</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid-2" style="gap:48px;align-items:center">
+    <div class="reveal">
+      <p class="eyebrow">How we count</p>
+      <h2>One fact sheet. <em>Every page.</em></h2>
+      <p>Each month the Managing Trustee approves one fact sheet. It updates this page, the home page, CSR proposals, the press kit and the Samachar together, so a figure is never out of step from one place to another.</p>
+      <a class="btn btn-primary" href="/fact-sheet">Open the fact sheet</a>
+    </div>
+    <div class="flow reveal" style="grid-template-columns:1fr 1fr">
+      <div><b>Kitchen log</b><p>Meals cooked and dispatched, every day.</p></div>
+      <div><b>Monthly fact sheet</b><p>Figures checked and dated by the team.</p></div>
+      <div><b>Trustee approval</b><p>The Managing Trustee signs off.</p></div>
+      <div><b>Everywhere at once</b><p>Website, Samachar, CSR and press update.</p></div>
+    </div>
+  </div>
+</section>

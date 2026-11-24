@@ -1,0 +1,11 @@
+# Original downloads from the WordPress media library (optimised copies live in src/assets/img)
+_source-assets/
+
+# Local tooling
+.claude/
+.vercel/
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+Thumbs.db

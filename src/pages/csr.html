@@ -1,0 +1,200 @@
+<!--{"title":"CSR partnerships · Adopt a school · Roti Bank Foundation","desc":"Fund school meals through CSR at ₹40 a meal. Adopt a school for ₹28.4 lakh a year, with an MoU, monthly delivery dashboard, quarterly reports and utilisation certificates. CSR-1 registered.","nav":"csr"}-->
+
+<section class="page-hero">
+  <div class="wrap page-hero-split">
+    <div>
+      <p class="crumbs"><a href="/">Home</a> / Partner (CSR)</p>
+      <p class="eyebrow">For companies and foundations</p>
+      <h1>Feed a school. <em>See every meal delivered.</em></h1>
+      <p class="lede">Fund school meals at {{fact:meal_cost}} a meal. You get an MoU, a dashboard of meals delivered against meals funded, photos from your schools, and every report your board and auditors need.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+        <a class="btn btn-primary btn-lg" href="#builder">Build your proposal</a>
+        <a class="btn btn-ghost btn-lg" href="#docs">Document room</a>
+      </div>
+    </div>
+    <div class="page-hero-img"><img src="/assets/img/classroom-serving.webp" alt="A Roti Bank volunteer serving lunch to children at their desks" width="686" height="500"></div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <div class="proof-grid">
+      <div class="proof-item"><span class="proof-num">CSR-1</span><p>registered implementing agency</p><span class="src">Companies Act, Schedule VII, Item (i)</span></div>
+      <div class="proof-item"><span class="proof-num">{{fact:meal_cost}}</span><p>per meal, all costs in</p><span class="src">{{fact:meal_cost|as_of}}</span></div>
+      <div class="proof-item"><span class="proof-num">{{fact:schools}}</span><p>Mumbai schools today</p><span class="src">{{fact:schools|as_of}}</span></div>
+      <div class="proof-item"><span class="proof-num">80G</span><p>registered trust</p><span class="src">Income Tax Act</span></div>
+      <div class="proof-item"><span class="proof-num">SDG 2</span><p>Zero Hunger, for BRSR</p><span class="src">and SDG 12.3</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow">Partnership sizes</p><h2>Pick a size. <em>Every rupee is a meal.</em></h2></div>
+      <p>Priced at {{fact:meal_cost}} a meal and {{fact:school_days}} school days a year. Each size comes with a signed MoU, monthly delivery data and a utilisation certificate.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier reveal">
+        <span class="kicker">One child</span><span class="big-num">{{fact:child_year}}</span>
+        <p>{{fact:child_year|label}}.</p>
+        <ul><li>Name the child's school</li><li>Annual impact card</li><li>80G receipt</li></ul>
+        <button type="button" class="btn btn-ghost" data-tier="0" onclick="location.hash='builder'">Use this size</button>
+      </div>
+      <div class="tier hot reveal">
+        <span class="kicker" style="color:#A9B2CC">Adopt a school</span><span class="big-num">{{fact:school_year}}</span>
+        <p>{{fact:school_year|label}}.</p>
+        <ul><li>Your name on the school's meal programme</li><li>Monthly dashboard and photos</li><li>Employee volunteering days</li></ul>
+        <button type="button" class="btn btn-saffron" data-tier="8" onclick="location.hash='builder'">Use this size</button>
+      </div>
+      <div class="tier reveal">
+        <span class="kicker">₹1 crore</span><span class="big-num">{{fact:crore_meals}}</span>
+        <p>{{fact:crore_meals|label}}.</p>
+        <ul><li>Several schools in one city</li><li>Quarterly review with trustees</li><li>Data pack for BRSR</li></ul>
+        <button type="button" class="btn btn-ghost" data-tier="11" onclick="location.hash='builder'">Use this size</button>
+      </div>
+      <div class="tier reveal">
+        <span class="kicker">A whole month</span><span class="big-num">{{fact:network_month}}</span>
+        <p>{{fact:network_month|label}}: every school, hospital and city.</p>
+        <ul><li>Founding-partner recognition</li><li>Impact assessment ready</li><li>Site visits for your board</li></ul>
+        <a class="btn btn-ghost" href="#enquire">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-paper" id="builder">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow">Proposal builder</p><h2>Your proposal, <em>in a minute.</em></h2></div>
+      <p>Choose an amount and a city. The proposal updates as you go. Download it as a branded PDF for your CSR committee.</p>
+    </div>
+    <div class="builder">
+      <div class="builder-form form">
+        <div class="field"><label for="b-company">Company name</label><input id="b-company" placeholder="e.g. Acme Industries Ltd" autocomplete="organization"></div>
+        <div class="field">
+          <label for="b-amount">Amount: <b id="b-amount-l" style="color:var(--blue)">₹28.4 lakh</b></label>
+          <input type="range" class="range" id="b-amount" min="0" max="14" step="1" value="8">
+          <div class="chips" style="grid-template-columns:repeat(4,1fr);margin-top:10px">
+            <button type="button" class="chip" data-preset="0"><b>1 child</b><small>₹8,360</small></button>
+            <button type="button" class="chip" data-preset="8"><b>1 school</b><small>₹28.4 lakh</small></button>
+            <button type="button" class="chip" data-preset="11"><b>₹1 crore</b><small>2.5 lakh meals</small></button>
+            <button type="button" class="chip" data-preset="14"><b>₹10 crore</b><small>25 lakh meals</small></button>
+          </div>
+        </div>
+        <div class="field"><label for="b-city">City</label><select id="b-city"><option>Mumbai</option><option>Nagpur</option><option>Chennai</option><option>Coimbatore</option><option>Hyderabad</option><option>Cuttack</option><option>Ahmedabad</option></select></div>
+        <div class="note"><b>Priced transparently:</b> {{fact:meal_cost}} a meal × {{fact:school_days}} school days a year. A school is about 340 children.</div>
+      </div>
+      <div class="builder-out">
+        <div class="proposal" id="proposal">
+          <div class="proposal-h"><div><span class="kicker" style="margin:0">CSR proposal</span><b data-p="date"></b></div><img src="/assets/img/logo.webp" alt="Roti Bank"></div>
+          <h3>School meals for <span data-p="city">Mumbai</span>, funded by <span data-p="company">Your company</span></h3>
+          <p class="fine">Implementing agency: Roti Foundation Mumbai (Mumbai Roti Bank). CSR-1 and 80G registered. Schedule VII, Item (i): eradicating hunger and malnutrition.</p>
+          <div class="prop-nums">
+            <div><b data-p="amount">₹28.4 lakh</b><span>commitment</span></div>
+            <div><b data-p="meals">71,060</b><span>fresh, nutritious meals</span></div>
+            <div><b data-p="children">340</b><span>children fed every school day for a year</span></div>
+            <div><b data-p="schools">1</b><span>schools adopted (about 340 children each)</span></div>
+          </div>
+          <p class="fine" style="margin:0">Includes: MoU, monthly delivery dashboard, geo-tagged photos from your schools, quarterly reports, utilisation certificate and data for your annual CSR report and BRSR.</p>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap" class="no-print">
+          <button type="button" class="btn btn-primary" id="b-print">Download proposal (PDF)</button>
+          <a class="btn btn-ghost" href="#enquire">Send to the Roti Bank team</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow">Partner dashboard · preview</p><h2>Your board sees <em>what you funded, delivered.</em></h2></div>
+      <p>Partners sign in to a dashboard of meals funded against meals delivered, month by month, with photos from their own schools. <b>Company and figures below are illustrative.</b></p>
+    </div>
+    <div class="dash reveal">
+      <div class="dash-top"><b>Acme Industries · School meals, Sion</b><span class="pill pill-green">On track · 2026–27</span></div>
+      <div class="dash-body">
+        <div class="tiles">
+          <div class="tile"><span>Meals funded</span><b>71,060</b><small>₹28.4 lakh</small></div>
+          <div class="tile"><span>Meals delivered</span><b>41,820</b><small>59% · on schedule</small></div>
+          <div class="tile"><span>Children reached</span><b>340</b><small>1 school</small></div>
+          <div class="tile"><span>Utilisation</span><b>₹16.7 lakh</b><small>Q2 certificate ready</small></div>
+        </div>
+        <div class="grid-2" style="gap:16px">
+          <div class="tile">
+            <span>Meals by month · funded vs delivered</span>
+            <div class="bars-mini">
+              <div><i style="height:70%"></i><i class="d" style="height:68%"></i><span>Jun</span></div>
+              <div><i style="height:70%"></i><i class="d" style="height:70%"></i><span>Jul</span></div>
+              <div><i style="height:70%"></i><i class="d" style="height:69%"></i><span>Aug</span></div>
+              <div><i style="height:70%"></i><i class="d" style="height:66%"></i><span>Sep</span></div>
+              <div><i style="height:70%"></i><i class="d" style="height:70%"></i><span>Oct</span></div>
+              <div><i style="height:70%"></i><i class="d" style="height:40%"></i><span>Nov</span></div>
+            </div>
+            <div class="legend"><span><i style="background:var(--line-2)"></i>Funded</span><span><i style="background:var(--blue)"></i>Delivered</span></div>
+          </div>
+          <div class="tile">
+            <span>Reports</span>
+            <ul class="list">
+              <li><span>Q2 utilisation certificate<small>Jul–Sep 2026 · signed</small></span><span class="pill">PDF</span></li>
+              <li><span>Quarterly impact report<small>Jul–Sep 2026</small></span><span class="pill">PDF</span></li>
+              <li><span>Photos from your school<small>48 photos · October</small></span><span class="pill pill-grey">Album</span></li>
+              <li><span>Employee volunteering day<small>12 December · 20 seats</small></span><span class="pill pill-saffron">Book</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-paper" id="docs">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow">Document room</p><h2>Due diligence, <em>done before you ask.</em></h2></div>
+      <p>Everything your CSR committee, auditors and independent assessors need. Partners get full access after signing the MoU.</p>
+    </div>
+    <div class="docs">
+      <div class="doc"><i></i><div><b>Trust deed and registration</b><span>PDF</span></div><span class="pill pill-grey">On request</span></div>
+      <div class="doc"><i></i><div><b>PAN of the trust</b><span>PDF</span></div><span class="pill pill-grey">On request</span></div>
+      <div class="doc"><i></i><div><b>80G registration</b><span>PDF</span></div><span class="pill pill-grey">On request</span></div>
+      <div class="doc"><i></i><div><b>CSR-1 registration</b><span>PDF</span></div><span class="pill pill-grey">On request</span></div>
+      <div class="doc"><i></i><div><b>Audited accounts</b><span>Last three years</span></div><span class="pill pill-grey">Partners</span></div>
+      <div class="doc"><i></i><div><b>MoU template</b><span>DOCX</span></div><span class="pill pill-grey">Partners</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="enquire">
+  <div class="wrap grid-2" style="gap:48px;align-items:start">
+    <div>
+      <p class="eyebrow">Talk to us</p>
+      <h2>Let's plan your <em>partnership.</em></h2>
+      <p class="lede">Tell us about your CSR budget and timeline. The Roti Bank team replies within two working days, and can arrange a kitchen visit for your committee.</p>
+      <div class="partner-list">
+        <div><b>Aurum Ventures</b><span>Food delivery van, 2022</span></div>
+        <div><b>Konkan Railway</b><span>8,940 kg of rations, Dec 2025</span></div>
+        <div><b>Gem &amp; Jewellery National Relief Foundation</b><span>Food delivery van, Oct 2026</span></div>
+      </div>
+      <p class="fine" style="margin-top:10px">Recent support, as thanked in the Samachar.</p>
+    </div>
+    <form class="card form" data-demo-form="Thank you. The Roti Bank CSR team will reply within two working days (demo).">
+      <div class="form-row">
+        <div class="field"><label for="e-name">Your name</label><input id="e-name" required autocomplete="name"></div>
+        <div class="field"><label for="e-co">Company</label><input id="e-co" required autocomplete="organization"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="e-email">Work email</label><input id="e-email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="e-phone">Phone</label><input id="e-phone" inputmode="tel" autocomplete="tel"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="e-budget">Budget</label><select id="e-budget"><option>Under ₹10 lakh</option><option>₹10–50 lakh</option><option>₹50 lakh – ₹1 crore</option><option>Over ₹1 crore</option></select></div>
+        <div class="field"><label for="e-when">Timeline</label><select id="e-when"><option>This financial year</option><option>Next financial year</option><option>Exploring</option></select></div>
+      </div>
+      <div class="field"><label for="e-msg">Anything else <span class="opt">(optional)</span></label><textarea id="e-msg"></textarea></div>
+      <button class="btn btn-primary" type="submit" style="justify-self:start">Send enquiry</button>
+    </form>
+  </div>
+</section>

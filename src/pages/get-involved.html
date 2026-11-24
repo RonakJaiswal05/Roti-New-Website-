@@ -1,0 +1,115 @@
+<!--{"title":"Get involved · Volunteer, run a ration drive, intern · Roti Bank Foundation","desc":"Book a volunteer shift at a Mumbai school or hospital gate, start a ration drive in your society or office, or intern with Roti Bank.","nav":"involved"}-->
+
+<section class="page-hero">
+  <div class="wrap page-hero-split">
+    <div>
+      <p class="crumbs"><a href="/">Home</a> / Get involved</p>
+      <p class="eyebrow">Get involved</p>
+      <h1>Give an hour. Fill a van. <em>Feed a school.</em></h1>
+      <p class="lede">Volunteers serve meals at school gates and hospitals. Housing societies, schools and offices run ration drives. Students intern with the team. Pick what fits your week.</p>
+      <div class="subnav"><a href="#volunteer">Volunteer</a><a href="#drive">Run a ration drive</a><a href="#intern">Internships</a><a href="#visit">Kitchen visits</a></div>
+    </div>
+    <div class="page-hero-img"><img src="/assets/img/volunteers-serving.webp" alt="Volunteers serving meals to people waiting in line" width="1374" height="1000"></div>
+  </div>
+</section>
+
+<section class="section bg-paper" id="volunteer">
+  <div class="wrap grid-2" style="gap:48px;align-items:start">
+    <div class="reveal">
+      <p class="eyebrow">Volunteer Hub</p>
+      <h2>Pick a date. <em>Book a shift.</em></h2>
+      <p>Every school and hospital distribution has a set number of volunteer seats. Book one, and we'll send the location pin, timing and dress code on WhatsApp, with a reminder the day before and two hours before.</p>
+      <ul class="list" style="margin:22px 0">
+        <li><span><b>Check in with a QR code</b><small>Your hours are logged automatically.</small></span></li>
+        <li><span><b>Certificates as you go</b><small>At 10, 25 and 50 shifts. Internship letters from your record.</small></span></li>
+        <li><span><b>Bring your college or company</b><small>Group days for 10 to 40 people, reported for CSR.</small></span></li>
+      </ul>
+      <div class="milestones"><span>10 shifts · Bronze</span><span>25 shifts · Silver</span><span>50 shifts · Gold</span></div>
+    </div>
+    <div class="card reveal">
+      <span class="kicker">Shift calendar · next two weeks</span>
+      <div class="cal" id="shift-cal" aria-label="Choose a date"></div>
+      <div class="shifts" id="shift-list" aria-live="polite"></div>
+      <div id="shift-confirm" hidden style="margin-top:16px">
+        <div class="wa-preview" style="margin:0;max-width:none"><div class="wa-bubble"><span id="sc-text"></span><small>now ✓✓</small></div></div>
+      </div>
+      <p class="fine" style="margin:14px 0 0">Demo: places and seats are illustrative.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="drive">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow">Ration Drive Kit</p><h2>Start a drive <em>in two minutes.</em></h2></div>
+      <p>Collect dry rations in your building, school or office. You get a drive page and a WhatsApp poster. When it closes, book a pickup: our kitchen weighs in every kilogram and sends you a certificate in kilograms and meals.</p>
+    </div>
+    <div class="grid-2" style="gap:24px;align-items:start">
+      <form class="card form" id="drive-form">
+        <div class="field"><label for="d-name">Drive name</label><input id="d-name" name="name" placeholder="e.g. Ashok Tower Diwali ration drive"></div>
+        <div class="field"><label for="d-place">Where</label><input id="d-place" name="place" placeholder="Building, area"></div>
+        <div class="form-row">
+          <div class="field"><label for="d-kg">Target (kg)</label><input id="d-kg" name="kg" type="number" min="10" step="10" value="500"></div>
+          <div class="field"><label for="d-end">Closes on</label><input id="d-end" name="end" type="date"></div>
+        </div>
+        <div class="note"><b>This month we need:</b> rice, tur dal, wheat flour, cooking oil, jaggery and poha. No cooked food, please.</div>
+        <button class="btn btn-primary" type="submit" style="justify-self:start">Create my drive page</button>
+      </form>
+      <div>
+        <div class="drive-preview" aria-live="polite">
+          <span class="kicker" style="color:var(--ink)">Ration drive · with Mumbai Roti Bank</span>
+          <h3 data-d="name">Your society's ration drive</h3>
+          <p style="margin:0" data-d="place">Your building, Mumbai</p>
+          <div class="progress"><i id="drive-bar" style="width:38%"></i></div>
+          <p style="margin:0;font-weight:600"><span data-d="got">190</span> of <span data-d="kg">500</span> kg collected · about <span data-d="meals">2,000</span> meals at goal</p>
+          <ul class="needs"><li>Rice</li><li>Tur dal</li><li>Atta</li><li>Oil</li><li>Jaggery</li><li>Poha</li></ul>
+          <p class="fine" style="color:var(--ink);margin:0">Drop-off closes <span data-d="end">the closing date</span>. Roti Bank picks up and weighs in.</p>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <span class="kicker">Leaderboard · kg collected this year (illustrative)</span>
+          <ol class="leader">
+            <li><span>Ashok Tower residents, Parel</span><b>2,140 kg</b></li>
+            <li><span>A school in Andheri</span><b>1,380 kg</b></li>
+            <li><span>An office in Lower Parel</span><b>960 kg</b></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-paper" id="intern">
+  <div class="wrap grid-2" style="gap:48px;align-items:center">
+    <div class="page-hero-img reveal"><img src="/assets/img/volunteers-banner.webp" alt="The Roti Bank team with volunteers in front of a Roti Bank banner" loading="lazy" width="399" height="299"></div>
+    <div class="reveal">
+      <p class="eyebrow">Internships</p>
+      <h2>Learn how a food programme <em>really runs.</em></h2>
+      <p>Interns work on distribution, outreach, social media, data and fundraising, alongside the Roti Bank team. Applications move from applied to interview to onboarded, and your letter is generated from your record when you finish.</p>
+      <form class="form" data-demo-form="Application received. We'll message you on WhatsApp to set up a call (demo).">
+        <div class="form-row">
+          <div class="field"><label for="i-name">Name</label><input id="i-name" required autocomplete="name"></div>
+          <div class="field"><label for="i-mob">Mobile</label><input id="i-mob" inputmode="numeric" required autocomplete="tel-national"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="i-col">College</label><input id="i-col"></div>
+          <div class="field"><label for="i-area">Area</label><select id="i-area"><option>Distribution</option><option>Outreach and social media</option><option>Data and reporting</option><option>Fundraising</option></select></div>
+        </div>
+        <button class="btn btn-primary" type="submit" style="justify-self:start">Apply</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="visit">
+  <div class="wrap">
+    <div class="sam reveal" style="grid-template-columns:1fr 1fr">
+      <div class="page-hero-img" style="box-shadow:none"><img src="/assets/img/rations-pour.webp" alt="Rations being poured into a large vessel in the Roti Bank kitchen" loading="lazy" width="510" height="350"></div>
+      <div>
+        <p class="eyebrow">Kitchen visits</p>
+        <h2>See your rations <em>become meals.</em></h2>
+        <p>Donors and drive organisers can visit the Roti Bank kitchen and watch the morning's cooking, from raw rations to packed meals. Visits are in small groups, on weekday mornings.</p>
+        <a class="btn btn-primary" href="mailto:teamrotibank@gmail.com?subject=Kitchen%20visit">Request a visit</a>
+      </div>
+    </div>
+  </div>
+</section>
