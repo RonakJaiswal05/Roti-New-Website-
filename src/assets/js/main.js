@@ -404,6 +404,41 @@
     upd();
   }
 
+  /* ================= Mumbai schools map ================= */
+  $$(".mmap").forEach(box => {
+    const svg = $(".mumbai-map", box), tip = $(".mm-tip", box), wrap = $(".mm-map", box);
+    const pins = $$(".pin", svg), items = $$(".mm-list li", box);
+    const clear = () => { pins.forEach(p => p.classList.remove("on")); items.forEach(i => i.classList.remove("on")); svg.classList.remove("dim"); tip.hidden = true; };
+    const show = (i, scroll) => {
+      clear();
+      const pin = pins[i], item = items.find(li => li.dataset.i === String(i));
+      if (!pin) return;
+      pin.classList.add("on"); item?.classList.add("on");
+      const [name, area] = pin.getAttribute("aria-label").split(/, (?=[^,]+$)/);
+      tip.innerHTML = `${name}<small>${area}</small>`;
+      const pr = pin.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
+      tip.style.left = Math.min(Math.max(pr.left - wr.left + pr.width / 2, 120), wr.width - 120) + "px";
+      tip.style.top = (pr.top - wr.top + pr.height / 2) + "px";
+      tip.hidden = false;
+      if (scroll && item) item.scrollIntoView({ block: "nearest", behavior: reduced ? "auto" : "smooth" });
+    };
+    pins.forEach(p => {
+      p.addEventListener("mouseenter", () => show(+p.dataset.i, true));
+      p.addEventListener("focus", () => show(+p.dataset.i, true));
+      p.addEventListener("click", () => show(+p.dataset.i, true));
+    });
+    items.forEach(li => {
+      li.addEventListener("mouseenter", () => show(+li.dataset.i));
+      li.addEventListener("focus", () => show(+li.dataset.i));
+      li.addEventListener("click", () => show(+li.dataset.i));
+    });
+    $$("[data-area]", box).forEach(h => h.addEventListener("click", () => {
+      clear(); svg.classList.add("dim");
+      $$("li", h.parentElement).forEach(li => { li.classList.add("on"); pins[+li.dataset.i]?.classList.add("on"); });
+    }));
+    box.addEventListener("mouseleave", clear);
+  });
+
   /* ================= Gallery filters ================= */
   const gal = $(".gallery");
   if (gal) {

@@ -1,0 +1,269 @@
+{
+ "_about": "Partner school pins from Roti Foundation Mumbai's Google My Maps 'School Locations' map (mid=1od-lE_L0FYVNl6ygg3sn44iOSbGo4y4). Duplicates removed; names tidied. Areas are approximate groupings.",
+ "schools": [
+  {
+   "name": "Gilbert Hill Municipal Urdu School No. 1",
+   "lat": 19.12128,
+   "lon": 72.8377,
+   "area": "Andheri & Jogeshwari"
+  },
+  {
+   "name": "Gilbert Hill Municipal Urdu School No. 2",
+   "lat": 19.12387,
+   "lon": 72.83808,
+   "area": "Andheri & Jogeshwari"
+  },
+  {
+   "name": "Vatsalyadrushti Foundation",
+   "lat": 19.21867,
+   "lon": 72.82197,
+   "area": "Borivali & Dahisar"
+  },
+  {
+   "name": "Hume High School",
+   "lat": 18.96739,
+   "lon": 72.83313,
+   "area": "Byculla"
+  },
+  {
+   "name": "Keshavrao Khadye Marg",
+   "lat": 18.98046,
+   "lon": 72.82877,
+   "area": "Byculla"
+  },
+  {
+   "name": "SSM Shivaji Vidyalaya School",
+   "lat": 18.98864,
+   "lon": 72.84288,
+   "area": "Byculla"
+  },
+  {
+   "name": "Sir Elly Kadoorie High School",
+   "lat": 18.96649,
+   "lon": 72.83909,
+   "area": "Byculla"
+  },
+  {
+   "name": "Sir Elly Kadoorie School and Junior College",
+   "lat": 18.9664,
+   "lon": 72.83925,
+   "area": "Byculla"
+  },
+  {
+   "name": "Chembur Karnatak High School and College",
+   "lat": 19.0564,
+   "lon": 72.90671,
+   "area": "Chembur"
+  },
+  {
+   "name": "Subhash Nagar Municipal School",
+   "lat": 19.05895,
+   "lon": 72.9037,
+   "area": "Chembur"
+  },
+  {
+   "name": "Tilak Night High School English Medium",
+   "lat": 19.06757,
+   "lon": 72.89446,
+   "area": "Chembur"
+  },
+  {
+   "name": "Gujarati School",
+   "lat": 19.14234,
+   "lon": 72.84738,
+   "area": "Goregaon & Malad"
+  },
+  {
+   "name": "Tilak Nagar Vidya Mandir School",
+   "lat": 19.21359,
+   "lon": 73.09287,
+   "area": "Kalyan & Dombivli"
+  },
+  {
+   "name": "Acharya Vidyaniketan (Mahul)",
+   "lat": 19.02784,
+   "lon": 72.88923,
+   "area": "Mahul & Trombay"
+  },
+  {
+   "name": "Jawahar Vidhya Bhavan",
+   "lat": 19.03918,
+   "lon": 72.89741,
+   "area": "Mahul & Trombay"
+  },
+  {
+   "name": "Narayan Acharya Vidyaniketan Bharatnagar",
+   "lat": 19.02947,
+   "lon": 72.9057,
+   "area": "Mahul & Trombay"
+  },
+  {
+   "name": "Shree Ganesh Vidyamandir",
+   "lat": 19.03228,
+   "lon": 72.89984,
+   "area": "Mahul & Trombay"
+  },
+  {
+   "name": "Citizen English High School",
+   "lat": 19.06502,
+   "lon": 72.92102,
+   "area": "Mankhurd & Govandi"
+  },
+  {
+   "name": "Dnyan Sampada High School",
+   "lat": 19.06112,
+   "lon": 72.92092,
+   "area": "Mankhurd & Govandi"
+  },
+  {
+   "name": "Govandi Education Society",
+   "lat": 19.05326,
+   "lon": 72.91404,
+   "area": "Mankhurd & Govandi"
+  },
+  {
+   "name": "Matoshree Vidyamandir",
+   "lat": 19.04371,
+   "lon": 72.92216,
+   "area": "Mankhurd & Govandi"
+  },
+  {
+   "name": "Shivamvidya Mandir High School and Junior College",
+   "lat": 19.05421,
+   "lon": 72.92859,
+   "area": "Mankhurd & Govandi"
+  },
+  {
+   "name": "Shree Sai Vidyalaya",
+   "lat": 19.0535,
+   "lon": 72.93269,
+   "area": "Mankhurd & Govandi"
+  },
+  {
+   "name": "BMC Marathi School",
+   "lat": 19.15063,
+   "lon": 72.94472,
+   "area": "Mulund & Bhandup"
+  },
+  {
+   "name": "Joglekar Wadi BMC School",
+   "lat": 19.0454,
+   "lon": 72.86658,
+   "area": "Sion & Matunga"
+  },
+  {
+   "name": "Kane Nagar Municipal School",
+   "lat": 19.03003,
+   "lon": 72.86129,
+   "area": "Sion & Matunga"
+  },
+  {
+   "name": "Karmaveer Bhaurao Patil Vidyalaya (KBPV)",
+   "lat": 19.0428,
+   "lon": 72.8719,
+   "area": "Sion & Matunga"
+  },
+  {
+   "name": "Pratiksha Nagar BMC School",
+   "lat": 19.04319,
+   "lon": 72.87287,
+   "area": "Sion & Matunga"
+  },
+  {
+   "name": "Sardar Nagar 1, Sion Koliwada",
+   "lat": 19.03981,
+   "lon": 72.86647,
+   "area": "Sion & Matunga"
+  },
+  {
+   "name": "Sion Municipal High School",
+   "lat": 19.03892,
+   "lon": 72.85974,
+   "area": "Sion & Matunga"
+  },
+  {
+   "name": "Ahmed Sailor High School",
+   "lat": 18.96515,
+   "lon": 72.83013,
+   "area": "South Mumbai"
+  },
+  {
+   "name": "Aryan School Opera House",
+   "lat": 18.95602,
+   "lon": 72.81744,
+   "area": "South Mumbai"
+  },
+  {
+   "name": "BIT Chawl",
+   "lat": 18.96737,
+   "lon": 72.82174,
+   "area": "South Mumbai"
+  },
+  {
+   "name": "Sevasadan Marathi Primary School",
+   "lat": 18.96074,
+   "lon": 72.81301,
+   "area": "South Mumbai"
+  },
+  {
+   "name": "Wilson High School",
+   "lat": 18.95687,
+   "lon": 72.8241,
+   "area": "South Mumbai"
+  },
+  {
+   "name": "Korba Mithagar Baalwadi School",
+   "lat": 19.0147,
+   "lon": 72.86442,
+   "area": "Wadala & Sewri"
+  },
+  {
+   "name": "Korba Mithagar Upper Primary Hindi School",
+   "lat": 19.01525,
+   "lon": 72.8644,
+   "area": "Wadala & Sewri"
+  },
+  {
+   "name": "Nadkarni Park Municipal School",
+   "lat": 19.01574,
+   "lon": 72.86205,
+   "area": "Wadala & Sewri"
+  },
+  {
+   "name": "National Kannada Education Society High School",
+   "lat": 19.02188,
+   "lon": 72.85911,
+   "area": "Wadala & Sewri"
+  },
+  {
+   "name": "Nirmal Vidyalay",
+   "lat": 19.01863,
+   "lon": 72.86853,
+   "area": "Wadala & Sewri"
+  },
+  {
+   "name": "Sewri Wadala Estate Upper Primary School",
+   "lat": 19.01167,
+   "lon": 72.85499,
+   "area": "Wadala & Sewri"
+  },
+  {
+   "name": "Shaikh Misri Dargah Municipal Urdu School",
+   "lat": 19.02617,
+   "lon": 72.86521,
+   "area": "Wadala & Sewri"
+  },
+  {
+   "name": "Wadala Upper Primary Marathi School",
+   "lat": 19.01564,
+   "lon": 72.85563,
+   "area": "Wadala & Sewri"
+  },
+  {
+   "name": "Ganpatrao Kadam Marg BMC School",
+   "lat": 18.99813,
+   "lon": 72.82404,
+   "area": "Worli & Lower Parel"
+  }
+ ]
+}

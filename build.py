@@ -8,7 +8,7 @@ what gets deployed to Vercel.
 
     python build.py
 """
-import json, re, shutil
+import html, json, re, shutil
 from datetime import date
 from pathlib import Path
 
@@ -133,6 +133,49 @@ def chapter_list():
     return f'<ul class="chapters">{"".join(rows)}</ul><p class="fine">Meals served to {F["meals_served"]["as_of"]}, total {fmt_int(total)}. {src_line("meals_served")}.</p>'
 
 
+MUMBAI = json.loads((SRC / "data" / "mumbai.json").read_text(encoding="utf-8"))
+SCHOOLS = json.loads((SRC / "data" / "schools.json").read_text(encoding="utf-8"))["schools"]
+MUMBAI_PLACES = [  # (label, lat, lon) — neighbourhood names drawn on the map
+    ("Colaba", 18.912, 72.816), ("Byculla", 18.976, 72.853), ("Worli", 19.006, 72.806),
+    ("Sion", 19.058, 72.832), ("Chembur", 19.082, 72.905), ("Ghatkopar", 19.100, 72.896), ("Andheri", 19.112, 72.852),
+    ("Goregaon", 19.165, 72.832), ("Borivali", 19.238, 72.842), ("Mulund", 19.178, 72.940), ("Thane", 19.212, 72.990),
+    ("Navi Mumbai", 19.080, 73.020), ("Kalyan", 19.246, 73.095),
+]
+
+
+def map_mumbai():
+    """Partner schools on a Mumbai outline (DataMeet CC-0), with a grouped school list beside it."""
+    lon0, lat0, lon1, lat1 = MUMBAI["box"]
+    k, s = MUMBAI["k"], MUMBAI["s"]
+    W, H = MUMBAI["viewBox"][2], MUMBAI["viewBox"][3]
+    xy = lambda lat, lon: ((lon - lon0) * k * s, (lat1 - lat) * s)
+    svg = [f'<svg class="mumbai-map" viewBox="0 0 {W} {H}" role="img" aria-labelledby="mumbai-map-t">'
+           f'<title id="mumbai-map-t">Map of Mumbai showing {len(SCHOOLS)} partner school locations</title>'
+           f'<rect class="sea" width="{W}" height="{H}"/>'
+           f'<path class="land" d="{MUMBAI["d"]}"/>'
+           f'<text class="sea-lbl" x="40" y="{H*0.62:.0f}">Arabian</text><text class="sea-lbl" x="40" y="{H*0.62+22:.0f}">Sea</text>']
+    for name, lat, lon in MUMBAI_PLACES:
+        x, y = xy(lat, lon)
+        svg.append(f'<text class="area-lbl" x="{x:.1f}" y="{y:.1f}">{name}</text>')
+    for i, sc in enumerate(SCHOOLS):
+        x, y = xy(sc["lat"], sc["lon"])
+        svg.append(f'<g class="pin" data-i="{i}" tabindex="0" aria-label="{html.escape(sc["name"])}, {html.escape(sc["area"])}">'
+                   f'<circle class="pin-halo" cx="{x:.1f}" cy="{y:.1f}" r="14"/><circle class="pin-dot" cx="{x:.1f}" cy="{y:.1f}" r="7.5"/></g>')
+    svg.append("</svg>")
+    groups = {}
+    for i, sc in enumerate(SCHOOLS):
+        groups.setdefault(sc["area"], []).append((i, sc["name"]))
+    lst = []
+    for area, items in sorted(groups.items(), key=lambda g: -len(g[1])):
+        lis = "".join(f'<li data-i="{i}" tabindex="0">{html.escape(n)}</li>' for i, n in items)
+        lst.append(f'<div class="mm-group"><h4 data-area>{html.escape(area)}<span>{len(items)}</span></h4><ul>{lis}</ul></div>')
+    return (f'<div class="mmap"><div class="mm-map">{"".join(svg)}'
+            f'<div class="mm-tip" role="status" aria-live="polite" hidden></div>'
+            f'<p class="mm-legend"><i></i>Partner school · hover or tap a pin</p></div>'
+            f'<div class="mm-side"><div class="mm-stats"><b>{len(SCHOOLS)}</b><span>partner school locations, in {len(groups)} areas</span></div>'
+            f'<div class="mm-list">{"".join(lst)}</div></div></div>')
+
+
 def live_attrs():
     lc = FACTS["live_counter"]
     return (f'data-count="{F[lc["base_fact"]]["value"]}" data-live="{F[lc["base_fact"]]["value"]}" '
@@ -166,6 +209,7 @@ def render(text):
     text = re.sub(r"\{\{chart:cities\}\}", lambda m: chart_cities(), text)
     text = re.sub(r"\{\{facts_table\}\}", lambda m: facts_table(), text)
     text = re.sub(r"\{\{map:india\}\}", lambda m: map_india(), text)
+    text = re.sub(r"\{\{map:mumbai\}\}", lambda m: map_mumbai(), text)
     text = re.sub(r"\{\{chapters\}\}", lambda m: chapter_list(), text)
     text = re.sub(r"\{\{live_attrs\}\}", lambda m: live_attrs(), text)
     text = re.sub(r"\{\{src:([a-z_]+)\}\}", lambda m: src_line(m.group(1)), text)
