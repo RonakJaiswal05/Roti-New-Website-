@@ -1,4 +1,4 @@
-/* Roti Bank Website 2.0 — site script (demo build). No dependencies. */
+/* Roti Foundation Mumbai Website 2.0 — site script (demo build). No dependencies. */
 (() => {
   "use strict";
   const $ = (s, r = document) => r.querySelector(s);
@@ -88,18 +88,24 @@
       io.unobserve(el);
     });
   }, { rootMargin: "0px 0px -8% 0px", threshold: .12 }) : null;
+  // Live meals counter: last published total + the recent daily average since that date.
+  const liveVal = el => {
+    const since = Date.parse(el.dataset.since), perDay = +el.dataset.perDay;
+    return Math.floor(+el.dataset.live + Math.max(0, Date.now() - since) / 864e5 * perDay);
+  };
+  const keepTicking = el => { if (el.dataset.live !== undefined) setInterval(() => { el.textContent = intl(liveVal(el)); }, 1000); };
   const countUp = el => {
-    const end = +el.dataset.count;
-    if (reduced || !end) return;
-    const dur = 1600, t0 = performance.now();
+    const end = el.dataset.live !== undefined ? liveVal(el) : +el.dataset.count;
+    if (reduced || !end) { el.textContent = intl(end); keepTicking(el); return; }
+    const dur = 1800, t0 = performance.now();
     const tick = now => {
       const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 4);
       el.textContent = intl(end * e);
-      if (p < 1) requestAnimationFrame(tick); else el.textContent = intl(end);
+      if (p < 1) requestAnimationFrame(tick); else { el.textContent = intl(end); keepTicking(el); }
     };
     requestAnimationFrame(tick);
   };
-  $$(".reveal, [data-count]").forEach(el => io ? io.observe(el) : el.classList.add("in"));
+  $$(".reveal, [data-count]").forEach(el => io ? io.observe(el) : (el.classList.add("in"), el.dataset.count && countUp(el)));
 
   /* ---------------- copy buttons + demo forms ---------------- */
   document.addEventListener("click", e => {
@@ -110,7 +116,7 @@
   });
   $$("[data-demo-form]").forEach(f => f.addEventListener("submit", e => {
     e.preventDefault();
-    toast(f.dataset.demoForm || "Sent (demo). In the live site this goes to the Roti Bank team.");
+    toast(f.dataset.demoForm || "Sent (demo). In the live site this goes to the Roti Foundation Mumbai team.");
     f.reset();
   }));
 
@@ -197,11 +203,7 @@
     occ?.addEventListener("change", () => { $("#occ-fields").hidden = !occ.checked; });
     if (new URLSearchParams(location.search).get("occasion") && occ) { occ.checked = true; $("#occ-fields").hidden = false; }
 
-    // 80G toggle
-    const w80 = $("#want80g");
-    w80?.addEventListener("change", () => { $("#g80-fields").hidden = !w80.checked; });
-
-    // field validation
+    // field validation (every donation gets a receipt, so name, PAN and address are always required)
     const validate = (input, ok, msg) => {
       const f = input.closest(".field");
       const hint = $(".hint", f);
@@ -216,6 +218,8 @@
     pan?.addEventListener("input", () => { pan.value = pan.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 10); validate(pan, v => /^[A-Z]{5}[0-9]{4}[A-Z]$/.test(v), "PAN looks like ABCDE1234F"); });
     mob?.addEventListener("input", () => { mob.value = mob.value.replace(/\D/g, "").slice(0, 10); validate(mob, v => /^[6-9]\d{9}$/.test(v), "Enter a 10-digit mobile number"); });
     email?.addEventListener("input", () => validate(email, v => /^\S+@\S+\.\S+$/.test(v), "Check the email address"));
+    const pin = $("#pin");
+    pin?.addEventListener("input", () => { pin.value = pin.value.replace(/\D/g, "").slice(0, 6); validate(pin, v => /^[1-9]\d{5}$/.test(v), "PIN code is 6 digits"); });
 
     // OTP (demo)
     const otpBtn = $("#otp-btn"), otpRow = $("#otp-row");
@@ -250,9 +254,15 @@
     gf.addEventListener("submit", e => {
       e.preventDefault();
       if (last.amount < MEAL) { toast("The smallest gift is ₹40, one meal"); return; }
-      if (!nm.value.trim()) { toast("Please add your name"); nm.focus(); return; }
+      const need = (el, msg) => { if (el && !el.value.trim()) { toast(msg); el.focus(); return true; } return false; };
+      if (nm.value.trim().split(/\s+/).length < 2) { toast("Please enter your full name, as on your PAN"); nm.focus(); return; }
       if (!/^[6-9]\d{9}$/.test(mob.value)) { toast("Please add a valid mobile number"); mob.focus(); return; }
-      if (w80.checked && !/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(pan.value)) { toast("Add your PAN for the 80G receipt, or untick it"); pan.focus(); return; }
+      if (!/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(pan.value)) { toast("Please add your PAN. Every donation receives an 80G receipt"); pan.focus(); return; }
+      if (need($("#addr1"), "Please add your flat or house number and building")) return;
+      if (need($("#addr2"), "Please add your street and area")) return;
+      if (need($("#city"), "Please add your city")) return;
+      if (need($("#state"), "Please choose your state")) return;
+      if (!/^[1-9]\d{5}$/.test(pin.value)) { toast("Please add your 6-digit PIN code"); pin.focus(); return; }
       if (!$("#consent").checked) { toast("Please agree to the privacy notice"); return; }
       const btn = $("#pay-btn");
       btn.disabled = true; btn.innerHTML = "Processing payment (demo)…";
@@ -262,7 +272,8 @@
         const msg = t(last.freq === "monthly" ? "give.thanks_monthly" : "give.thanks_once", { kids: kidsWord });
         $("[data-r=thanks]").innerHTML = `${first}, ` + (lang === "en" ? msg.charAt(0).toLowerCase() + msg.slice(1) : msg);
         $("[data-r=name]").textContent = nm.value.trim();
-        $("[data-r=pan]").textContent = w80.checked ? pan.value.replace(/^(\w{2})\w{6}(\w{2})$/, "$1••••••$2") : "Not requested";
+        $("[data-r=pan]").textContent = pan.value.replace(/^(\w{2})\w{6}(\w{2})$/, "$1••••••$2");
+        $("[data-r=addr]").textContent = `${$("#city").value.trim()}, ${$("#state").value} ${pin.value}`;
         $("[data-r=amount]").textContent = "₹" + inr(last.amount) + (last.freq === "monthly" ? " (monthly)" : "");
         $("[data-r=meals]").textContent = inr(last.kids) + " meals";
         $("[data-r=date]").textContent = new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
@@ -339,7 +350,7 @@
     const places = [
       ["New Sion Municipal School No. 2", "Sion", "School distribution", "11:30 am – 1:00 pm"],
       ["Hospital gate meals", "Central Mumbai", "Hospital meals", "12:00 – 1:30 pm"],
-      ["Roti Bank kitchen", "Kitchen", "Kitchen and packing", "7:00 – 10:00 am"],
+      ["Roti Foundation Mumbai kitchen", "Kitchen", "Kitchen and packing", "7:00 – 10:00 am"],
       ["Lokmanya Tilak English High School", "Sion", "School distribution", "11:30 am – 1:00 pm"],
       ["Cancer centre gate meals", "Central Mumbai", "Hospital meals", "12:30 – 2:00 pm"]
     ];
@@ -391,6 +402,16 @@
     df.addEventListener("input", upd);
     df.addEventListener("submit", e => { e.preventDefault(); toast("Drive page created (demo). Share it on WhatsApp to start collecting."); });
     upd();
+  }
+
+  /* ================= Gallery filters ================= */
+  const gal = $(".gallery");
+  if (gal) {
+    const btns = $$(".gal-filters [data-filter]");
+    btns.forEach(b => b.addEventListener("click", () => {
+      btns.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+      $$("figure", gal).forEach(f => { f.hidden = b.dataset.filter !== "all" && f.dataset.cat !== b.dataset.filter; });
+    }));
   }
 
   /* ================= Samachar search ================= */

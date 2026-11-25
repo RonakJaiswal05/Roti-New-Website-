@@ -90,6 +90,55 @@ def chart_cities():
     return f'<ol class="city-bars">{"".join(rows)}</ol><p class="fine">Total {fmt_int(total)} meals. {src_line("meals_served")}.</p>'
 
 
+INDIA = json.loads((SRC / "data" / "india.json").read_text(encoding="utf-8"))
+
+
+def map_india():
+    """India outline (official boundary, DataMeet CC-0) with every Roti Bank chapter marked."""
+    pr = INDIA["proj"]
+    def xy(lat, lon):
+        return (((lon - pr["lon0"]) * pr["k"] - pr["minx"]) * pr["s"], (-(lat - pr["lat0"]) - pr["miny"]) * pr["s"])
+    W, H = INDIA["viewBox"][2], INDIA["viewBox"][3]
+    top = max(c["meals"] for c in FACTS["cities"])
+    # label side per city, chosen so labels never overlap
+    side = {"Mumbai": "l", "Ahmedabad": "l", "Nagpur": "r", "Hyderabad": "r", "Chennai": "r", "Coimbatore": "l", "Cuttack": "r"}
+    out = [f'<svg class="india-map" viewBox="0 0 {W} {H}" role="img" aria-labelledby="india-map-t">'
+           f'<title id="india-map-t">Map of India showing Roti Bank chapters in {len(FACTS["cities"])} cities</title>'
+           f'<path class="land" d="{INDIA["d"]}"/>']
+    for c in sorted(FACTS["cities"], key=lambda c: -c["meals"]):
+        x, y = xy(c["lat"], c["lon"])
+        r = 7 + 17 * (c["meals"] / top) ** .5
+        s = side.get(c["name"], "r")
+        tx, anchor = (x - r - 8, "end") if s == "l" else (x + r + 8, "start")
+        short = f'{c["meals"]/1e6:.1f}M' if c["meals"] >= 1e6 else f'{c["meals"]/1e3:.0f}K'
+        out.append(f'<g class="chap" tabindex="0"><circle class="halo" cx="{x:.1f}" cy="{y:.1f}" r="{r+6:.1f}"/>'
+                   f'<circle class="dot" cx="{x:.1f}" cy="{y:.1f}" r="{r:.1f}"/>'
+                   f'<text x="{tx:.1f}" y="{y-2:.1f}" text-anchor="{anchor}" class="cn">{c["name"]}</text>'
+                   f'<text x="{tx:.1f}" y="{y+15:.1f}" text-anchor="{anchor}" class="cm">{short} meals</text>'
+                   f'<title>{c["name"]}, {c["state"]}: {fmt_int(c["meals"])} meals</title></g>')
+    for o in FACTS.get("outreach", []):
+        x, y = xy(o["lat"], o["lon"])
+        out.append(f'<g class="chap outreach" tabindex="0"><circle class="ring" cx="{x:.1f}" cy="{y:.1f}" r="7"/>'
+                   f'<text x="{x-14:.1f}" y="{y+22:.1f}" text-anchor="end" class="cn">{o["name"]}</text>'
+                   f'<title>{o["name"]}, {o["district"]}, {o["state"]}: {o["note"]}</title></g>')
+    out.append("</svg>")
+    return "".join(out)
+
+
+def chapter_list():
+    total = sum(c["meals"] for c in FACTS["cities"])
+    rows = [f'<li><b>{c["name"]}</b><span>{c["state"]}</span><em>{fmt_int(c["meals"])}</em></li>' for c in FACTS["cities"]]
+    for o in FACTS.get("outreach", []):
+        rows.append(f'<li class="outreach"><b>{o["name"]}</b><span>{o["district"]}, {o["state"]}</span><em>School nutrition</em></li>')
+    return f'<ul class="chapters">{"".join(rows)}</ul><p class="fine">Meals served to {F["meals_served"]["as_of"]}, total {fmt_int(total)}. {src_line("meals_served")}.</p>'
+
+
+def live_attrs():
+    lc = FACTS["live_counter"]
+    return (f'data-count="{F[lc["base_fact"]]["value"]}" data-live="{F[lc["base_fact"]]["value"]}" '
+            f'data-since="{lc["base_time"]}" data-per-day="{lc["per_day"]}"')
+
+
 def facts_table():
     groups = {}
     for k, f in F.items():
@@ -116,6 +165,9 @@ def render(text):
     text = re.sub(r"\{\{chart:record\}\}", lambda m: chart_record(), text)
     text = re.sub(r"\{\{chart:cities\}\}", lambda m: chart_cities(), text)
     text = re.sub(r"\{\{facts_table\}\}", lambda m: facts_table(), text)
+    text = re.sub(r"\{\{map:india\}\}", lambda m: map_india(), text)
+    text = re.sub(r"\{\{chapters\}\}", lambda m: chapter_list(), text)
+    text = re.sub(r"\{\{live_attrs\}\}", lambda m: live_attrs(), text)
     text = re.sub(r"\{\{src:([a-z_]+)\}\}", lambda m: src_line(m.group(1)), text)
     text = re.sub(r"\{\{fact:([a-z_]+)(?:\|([a-z_]+))?\}\}", lambda m: fmt(m.group(1), m.group(2) or "value"), text)
     text = re.sub(r"\{\{(edition|approved_on|year)\}\}", lambda m: TOKENS[m.group(1)](), text)

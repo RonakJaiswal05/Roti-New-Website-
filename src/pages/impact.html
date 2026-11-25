@@ -1,20 +1,20 @@
-<!--{"title":"Impact · The Record · Roti Bank Foundation","desc":"31,192,568 meals served since 2017, counted and published every month in the Roti Bank Samachar. Meals by city, programme figures and the full record.","nav":"impact"}-->
+<!--{"title":"Impact · The Record · Roti Foundation Mumbai","desc":"31,192,568 meals served since 2017, counted and published every month in the Roti Bank Samachar. Meals by city, programme figures and the full record.","nav":"impact"}-->
 
 <section class="page-hero" style="padding-bottom:0">
   <div class="wrap">
     <p class="crumbs"><a href="/">Home</a> / Impact</p>
-    <p class="eyebrow">The Record · Roti Bank Live Impact</p>
+    <p class="eyebrow">The Record · Roti Foundation Mumbai Live Impact</p>
     <h1>Every meal you fund is counted, <em>and the count is public.</em></h1>
     <p class="lede">The meals counter has been printed in the Roti Bank Samachar every month since 2019. Here it is in one place, with every figure dated and sourced.</p>
-    <div class="subnav"><a href="#record">The record</a><a href="#cities">Meals by city</a><a href="#programmes">Programmes</a><a href="#today">Today in the kitchen</a><a href="/hunger-watch">Hunger &amp; Food Waste Watch</a><a href="/fact-sheet">Fact sheet</a></div>
+    <div class="subnav"><a href="#record">The record</a><a href="#cities">Chapters across India</a><a href="#schools-map">Schools in Mumbai</a><a href="#programmes">Programmes</a><a href="#today">Today in the kitchen</a><a href="/hunger-watch">Hunger &amp; Food Waste Watch</a><a href="/fact-sheet">Fact sheet</a></div>
   </div>
 </section>
 
 <section class="counter-hero">
   <div class="wrap">
-    <span class="mega" data-count="{{fact:meals_served|value}}">{{fact:meals_served}}</span>
-    <p>meals served since December 2017</p>
-    <span class="src">{{src:meals_served}}. Updated monthly from the trustee-approved fact sheet, never a simulated number.</span>
+    <span class="mega" {{live_attrs}}>{{fact:meals_served}}</span>
+    <p><span class="pulse" aria-hidden="true"></span> meals served since December 2017, and counting</p>
+    <span class="src">Live count: the last published total ({{fact:meals_served}}, {{src:meals_served}}) plus about {{fact:meals_day}} meals a day since. From Phase 4 it reads straight from the kitchen log.</span>
   </div>
 </section>
 
@@ -31,16 +31,30 @@
 </section>
 
 <section class="section-tight" id="cities">
-  <div class="wrap grid-2" style="gap:48px;align-items:start">
-    <div class="reveal">
-      <p class="eyebrow">Meals by city</p>
-      <h2>Seven cities. <em>Five states.</em></h2>
-      <p class="lede">Mumbai is where Roti Bank began and where most meals are served. Nagpur, Coimbatore, Chennai, Hyderabad, Cuttack and Ahmedabad followed.</p>
-      <p class="fine">To {{fact:meals_served|as_of}}. In Phase 4 this becomes a map of every partner school and hospital, with children fed at each and the partner who funds it.</p>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow">Roti Bank chapters across India</p><h2>Seven cities. <em>Five states.</em></h2></div>
+      <p>Mumbai is where Roti Foundation Mumbai began and where most meals are served. Nagpur, Coimbatore, Chennai, Hyderabad, Cuttack and Ahmedabad followed, and school nutrition now reaches Kashipur in Odisha.</p>
     </div>
-    <div class="card reveal">
-      {{chart:cities}}
+    <div class="chapters-grid chapters-grid-impact">
+      <div class="map-wrap card reveal">{{map:india}}</div>
+      <div class="card reveal">
+        {{chart:cities}}
+      </div>
     </div>
+  </div>
+</section>
+
+<section class="section-tight" id="schools-map">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow">School map</p><h2>Our schools <em>in Mumbai.</em></h2></div>
+      <p>Every school where children receive a Roti Foundation Mumbai meal. Tap a pin to see the school's name. {{fact:children_daily}} children in {{fact:schools}} schools are fed every school day ({{fact:schools|as_of}}).</p>
+    </div>
+    <div class="gmap reveal">
+      <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1od-lE_L0FYVNl6ygg3sn44iOSbGo4y4&amp;ehbc=2E312F" title="Map of Roti Foundation Mumbai partner schools in Mumbai" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <p class="fine" style="margin-top:10px">The same school map as on the current website, kept up to date by the Roti Foundation Mumbai team in Google My Maps. <a href="https://www.google.com/maps/d/u/0/viewer?mid=1od-lE_L0FYVNl6ygg3sn44iOSbGo4y4">Open it full screen</a>.</p>
   </div>
 </section>
 

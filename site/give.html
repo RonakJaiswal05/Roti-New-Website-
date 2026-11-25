@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Give · Feed a child for ₹40 · Roti Bank Foundation</title>
+<title>Give · Feed a child for ₹40 · Roti Foundation Mumbai</title>
 <meta name="description" content="Feed a child a fresh, nutritious meal for ₹40. Give once or monthly by UPI, card or net banking, and get your 80G receipt on WhatsApp in minutes.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#14213D">
-<meta property="og:title" content="Give · Feed a child for ₹40 · Roti Bank Foundation">
+<meta property="og:title" content="Give · Feed a child for ₹40 · Roti Foundation Mumbai">
 <meta property="og:description" content="Feed a child a fresh, nutritious meal for ₹40. Give once or monthly by UPI, card or net banking, and get your 80G receipt on WhatsApp in minutes.">
 <meta property="og:image" content="/assets/img/hero-schoolchildren.webp">
 <meta property="og:type" content="website">
@@ -16,19 +16,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Instrument+Sans:wght@400..700&family=Mukta:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap">
 <link rel="stylesheet" href="/assets/css/main.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"NGO","name":"Roti Foundation Mumbai (Mumbai Roti Bank)","alternateName":"Roti Bank Foundation","url":"https://rotibankfoundation.org","logo":"https://rotibankfoundation.org/wp-content/uploads/2024/11/Header-logo.webp","foundingDate":"2017-12","founder":{"@type":"Person","name":"D. Sivanandhan"},"telephone":"+91-86555-80001","email":"teamrotibank@gmail.com","sameAs":["https://www.instagram.com/rotibankfdn/","https://www.facebook.com/rotibankfdn","https://x.com/rotibankfdn"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NGO","name":"Roti Foundation Mumbai","alternateName":"Mumbai Roti Bank","url":"https://rotibankfoundation.org","logo":"https://rotibankfoundation.org/wp-content/uploads/2024/11/Header-logo.webp","foundingDate":"2017-12","founder":{"@type":"Person","name":"D. Sivanandhan"},"telephone":"+91-86555-80001","email":"teamrotibank@gmail.com","sameAs":["https://www.instagram.com/rotibankfdn/","https://www.facebook.com/rotibankfdn","https://x.com/rotibankfdn"]}</script>
 </head>
 <body class="give">
 <a class="skip" href="#main">Skip to content</a>
 <div class="demo-bar" role="note">
-  <span data-i18n="demo.bar">Design preview by Zik Digital for Roti Bank Foundation. Payments and forms are in demo mode, so no money is taken.</span>
+  <span data-i18n="demo.bar">Design preview by Zik Digital for Roti Foundation Mumbai. Payments and forms are in demo mode, so no money is taken.</span>
   <a href="https://rotibankfoundation.org">rotibankfoundation.org</a>
 </div>
 <header class="site-header">
   <div class="wrap hdr">
-    <a class="brand" href="/" aria-label="Roti Bank Foundation, home">
+    <a class="brand" href="/" aria-label="Roti Foundation Mumbai, home">
       <img src="/assets/img/logo.webp" alt="" width="46" height="46">
-      <span class="brand-txt"><b>Roti Bank</b><small data-i18n="brand.sub">Foundation · Mumbai</small></span>
+      <span class="brand-txt"><b>Roti Foundation Mumbai</b><small data-i18n="brand.sub">Public charitable trust · since 2017</small></span>
     </a>
     <nav class="nav" id="site-nav" aria-label="Main">
       <ul>
@@ -42,6 +42,7 @@
       <div class="nav-extra">
         <a href="/hunger-watch" data-i18n="nav.watch">Hunger &amp; Food Waste Watch</a>
         <a href="/samachar" data-i18n="nav.samachar">Samachar</a>
+        <a href="/gallery" data-i18n="nav.gallery">Gallery</a>
         <a href="/press" data-i18n="nav.press">Press</a>
         <a href="/fact-sheet" data-i18n="nav.facts">Fact sheet</a>
         <a href="/account" data-i18n="nav.account">My account</a>
@@ -129,13 +130,16 @@
               <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="email" inputmode="email"><p class="hint">A copy of every receipt.</p></div>
             </div>
             <div class="field" id="otp-row" hidden><label for="otp">Enter the 4-digit OTP</label><input id="otp" inputmode="numeric" autocomplete="one-time-code" maxlength="4" style="max-width:180px;letter-spacing:.4em;font-weight:700"></div>
-            <label class="check"><input type="checkbox" id="want80g" checked> <span><b>I want an 80G tax receipt</b> <span class="fine">(needed for your tax deduction)</span></span></label>
+            <p class="note" style="margin:4px 0 0"><b>Every donation receives an 80G receipt.</b> Your full name, PAN and address are required for all gifts, including UPI, so that we can issue your receipt and keep donor records as the law requires.</p>
             <div id="g80-fields" class="form">
+              <div class="field"><label for="pan">PAN</label><input id="pan" autocomplete="off" placeholder="ABCDE1234F" required style="text-transform:uppercase;letter-spacing:.06em;max-width:280px"><p class="hint">Checked as you type. Stored encrypted.</p></div>
+              <div class="field"><label for="addr1">Flat / house no., building</label><input id="addr1" autocomplete="address-line1" required></div>
+              <div class="field"><label for="addr2">Street, area, locality</label><input id="addr2" autocomplete="address-line2" required></div>
               <div class="form-row">
-                <div class="field"><label for="pan">PAN</label><input id="pan" autocomplete="off" placeholder="ABCDE1234F" style="text-transform:uppercase;letter-spacing:.06em"><p class="hint">Checked as you type. Stored encrypted.</p></div>
-                <div class="field"><label for="pin">PIN code</label><input id="pin" inputmode="numeric" autocomplete="postal-code" maxlength="6"></div>
+                <div class="field"><label for="city">City</label><input id="city" autocomplete="address-level2" required></div>
+                <div class="field"><label for="state">State</label><select id="state" autocomplete="address-level1" required><option value="">Select state</option><option>Maharashtra</option><option>Gujarat</option><option>Karnataka</option><option>Tamil Nadu</option><option>Telangana</option><option>Odisha</option><option>Delhi</option><option>West Bengal</option><option>Uttar Pradesh</option><option>Rajasthan</option><option>Madhya Pradesh</option><option>Kerala</option><option>Andhra Pradesh</option><option>Goa</option><option>Punjab</option><option>Haryana</option><option>Bihar</option><option>Other</option></select></div>
               </div>
-              <div class="field"><label for="addr">Address</label><input id="addr" autocomplete="street-address"></div>
+              <div class="field"><label for="pin">PIN code</label><input id="pin" inputmode="numeric" autocomplete="postal-code" maxlength="6" required style="max-width:200px"><p class="hint">6 digits.</p></div>
             </div>
           </div>
         </div>
@@ -160,7 +164,7 @@
           <div id="card-box" hidden class="form" style="margin-bottom:18px">
             <div class="field"><label for="cc">Card number</label><input id="cc" inputmode="numeric" autocomplete="off" placeholder="Demo mode: no card details are taken" disabled></div>
           </div>
-          <label class="check" style="margin-bottom:18px"><input type="checkbox" id="consent" checked> <span class="fine">I agree to Roti Bank's privacy notice. My PAN and contact details are used only for receipts and updates, stored in India, and I can download or delete them at any time.</span></label>
+          <label class="check" style="margin-bottom:18px"><input type="checkbox" id="consent" checked> <span class="fine">I agree to Roti Foundation Mumbai's privacy notice. My PAN and contact details are used only for receipts and updates, stored in India, and I can download or delete them at any time.</span></label>
           <button class="btn btn-primary btn-lg btn-block" id="pay-btn" type="submit">Pay <span id="pay-amt">₹1,000</span> (demo)</button>
           <p class="gc-foot" style="margin-top:14px"><span>Secured by Razorpay</span><span>80G · CSR-1 registered trust</span><span>Demo: no money is taken</span></p>
         </div>
@@ -168,6 +172,7 @@
 
       <!-- SUMMARY -->
       <aside class="summary" aria-label="Your gift">
+        <figure class="sum-img"><img src="/assets/img/p-meal-plate.webp" alt="A Roti Foundation Mumbai meal: roti, dal, rice and sabzi" width="1142" height="765"><figcaption>This is a ₹40 meal.</figcaption></figure>
         <h2>Your gift</h2>
         <div class="kids" data-sum="kids">25</div>
         <p class="kids-l" data-sum="kids-l">children get a fresh, nutritious meal today</p>
@@ -203,6 +208,7 @@
           <dt>Date</dt><dd data-r="date"></dd>
           <dt>Donor</dt><dd data-r="name"></dd>
           <dt>PAN</dt><dd data-r="pan"></dd>
+          <dt>Address</dt><dd data-r="addr"></dd>
           <dt>Amount</dt><dd data-r="amount"></dd>
           <dt>Meals funded</dt><dd data-r="meals"></dd>
         </dl>
@@ -219,7 +225,7 @@
 
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
         <a class="btn btn-saffron" href="/account">See your impact dashboard</a>
-        <button type="button" class="btn btn-ghost" data-copy="I just fed children a fresh meal with Mumbai Roti Bank. ₹40 feeds a child: rotibankfoundation.org/give">Share with friends</button>
+        <button type="button" class="btn btn-ghost" data-copy="I just fed children a fresh meal with Roti Foundation Mumbai. ₹40 feeds a child: rotibankfoundation.org/give">Share with friends</button>
         <button type="button" class="btn btn-ghost" id="again">Give again</button>
       </div>
     </div>
@@ -243,14 +249,20 @@
       <div><span>IFSC</span><b>RATN0000088</b><button type="button" class="copy" data-copy="RATN0000088">Copy</button></div>
     </div>
     <form class="card form" style="margin-top:18px" data-demo-form="Thank you. We'll match your UTR and send your 80G receipt on WhatsApp (demo).">
-      <h3 style="margin:0">Already transferred? Claim your 80G receipt</h3>
+      <h3 style="margin:0">Already transferred? Get your 80G receipt</h3>
+      <p class="fine" style="margin:0">Every donation receives a receipt. Full name, PAN and address are required.</p>
       <div class="form-row">
         <div class="field"><label for="utr">UTR / reference number</label><input id="utr" required></div>
         <div class="field"><label for="utr-amt">Amount (₹)</label><input id="utr-amt" inputmode="numeric" required></div>
       </div>
       <div class="form-row">
-        <div class="field"><label for="utr-pan">PAN</label><input id="utr-pan" style="text-transform:uppercase"></div>
-        <div class="field"><label for="utr-mob">Mobile (WhatsApp)</label><input id="utr-mob" inputmode="numeric"></div>
+        <div class="field"><label for="utr-name">Full name (as on PAN)</label><input id="utr-name" autocomplete="name" required></div>
+        <div class="field"><label for="utr-pan">PAN</label><input id="utr-pan" required pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]" title="PAN looks like ABCDE1234F" style="text-transform:uppercase"></div>
+      </div>
+      <div class="field"><label for="utr-addr">Full address with PIN code</label><textarea id="utr-addr" autocomplete="street-address" required style="min-height:72px"></textarea></div>
+      <div class="form-row">
+        <div class="field"><label for="utr-mob">Mobile (WhatsApp)</label><input id="utr-mob" inputmode="numeric" required pattern="[6-9][0-9]{9}" title="10-digit mobile number"></div>
+        <div class="field"><label for="utr-email">Email <span class="opt">(optional)</span></label><input id="utr-email" type="email" autocomplete="email"></div>
       </div>
       <button class="btn btn-primary" type="submit" style="justify-self:start">Send my receipt</button>
     </form>
@@ -265,10 +277,10 @@
       <p class="lede">Anything else? Call <a href="tel:+918655580001">+91 86555 80001</a> or write to <a href="mailto:teamrotibank@gmail.com">teamrotibank@gmail.com</a>.</p>
     </div>
     <div class="faq">
-      <details open><summary>Is my donation tax deductible?</summary><p>Yes. Roti Foundation Mumbai is registered under Section 80G. Add your PAN at checkout and your receipt arrives on WhatsApp and email within minutes. Each year we also file Form 10BD and send you your Form 10BE certificate before 31 May.</p></details>
-      <details><summary>Why ₹40?</summary><p>₹40 is what it costs Roti Bank to cook and deliver one fresh, nutritious meal for a child, as published in the Samachar. Your amount is shown in meals so you always know what it became.</p></details>
+      <details open><summary>Is my donation tax deductible?</summary><p>Yes. Roti Foundation Mumbai is registered under Section 80G, and every donation receives a receipt. We ask every donor for their full name, PAN and address at checkout, and the receipt arrives on WhatsApp and email within minutes. Each year we also file Form 10BD and send you your Form 10BE certificate before 31 May.</p></details>
+      <details><summary>Why ₹40?</summary><p>₹40 is what it costs Roti Foundation Mumbai to cook and deliver one fresh, nutritious meal for a child, as published in the Samachar. Your amount is shown in meals so you always know what it became.</p></details>
       <details><summary>Can I pause or cancel a monthly gift?</summary><p>Any time, in one tap, from My account. You'll never need to call or email us to stop a mandate.</p></details>
-      <details><summary>Can I give from outside India?</summary><p>Roti Bank can accept gifts from Indian bank accounts and cards. For gifts from abroad, write to us and we'll guide you.</p></details>
+      <details><summary>Can I give from outside India?</summary><p>Roti Foundation Mumbai can accept gifts from Indian bank accounts and cards. For gifts from abroad, write to us and we'll guide you.</p></details>
       <details><summary>Can my company match my gift?</summary><p>Yes. See <a href="/csr">CSR partnerships</a> for payroll giving and employee volunteering days.</p></details>
     </div>
   </div>
@@ -293,7 +305,7 @@
     <div class="foot-brand">
       <a class="brand brand-light" href="/">
         <img src="/assets/img/logo.webp" alt="" width="46" height="46" loading="lazy">
-        <span class="brand-txt"><b>Roti Bank</b><small>Roti Foundation Mumbai</small></span>
+        <span class="brand-txt"><b>Roti Foundation Mumbai</b><small>Public charitable trust · since 2017</small></span>
       </a>
       <p data-i18n="foot.about">Fresh, nutritious meals for children in municipal schools, for families outside hospitals, and for anyone going hungry. Founded in December 2017 by Shri D. Sivanandhan, IPS (Retd.).</p>
       <ul class="badges">
@@ -327,6 +339,7 @@
         <li><a href="/about#transparency" data-i18n="foot.transparency">Transparency</a></li>
         <li><a href="/press" data-i18n="nav.press">Press</a></li>
         <li><a href="/samachar" data-i18n="nav.samachar">Samachar</a></li>
+        <li><a href="/gallery" data-i18n="nav.gallery">Gallery</a></li>
       </ul>
     </div>
     <div class="foot-contact">
